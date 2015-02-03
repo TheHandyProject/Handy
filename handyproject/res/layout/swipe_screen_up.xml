@@ -1,110 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/RelativeLayout1"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent" >
-
-    
-    <TextView
-        android:id="@+id/up_textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/up_NW"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <TextView
-        android:id="@+id/up_textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/up_NE"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-    
-    <TextView
-        android:id="@+id/up_textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:text="@string/up_SE"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/up_textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/up_North"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <TextView
-        android:id="@+id/up_textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/up_textView4"
-        android:layout_alignBottom="@+id/up_textView4"
-        android:layout_alignParentRight="true"
-        android:text="@string/up_East"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:visibility="gone"
-        android:src="@drawable/ic_launcher" />
-
-    <TextView
-        android:id="@+id/up_textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/up_textView2"
-        android:text="@string/up_South"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:visibility="invisible"
-        android:src="@drawable/ic_launcher" />
-
-    <TextView
-        android:id="@+id/up_textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignRight="@+id/up_textView4"
-        android:layout_alignTop="@+id/up_textView7"
-        android:text="@string/up_SW"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_centerVertical="true"
-        android:visibility="visible"
-        android:src="@drawable/back" />
-
-    <TextView
-        android:id="@+id/up_textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/imageView1"
-        android:visibility="invisible"
-        android:text="&lt;-"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
+<RelativeLayout android:id="@id/RelativeLayout1" android:background="#99f1c40f" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="a" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="c" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView8" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="e" android:layout_alignParentRight="true" android:layout_alignParentBottom="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="b" android:layout_alignParentTop="true" android:layout_centerHorizontal="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView6" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="g" android:layout_alignTop="@id/textView7" android:layout_alignRight="@id/textView4" android:layout_alignParentLeft="true" />
+    <EditText android:textSize="50.0sp" android:id="@id/editText1" android:background="#392980b9" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginTop="40.0dip" android:ems="10" android:layout_toLeftOf="@id/textView3" android:layout_toRightOf="@id/textView4" android:layout_below="@id/textView2" android:inputType="text">
+        <requestFocus />
+    </EditText>
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView7" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="f" android:layout_alignParentBottom="true" android:layout_centerHorizontal="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView4" android:visibility="visible" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="&lt;" android:layout_alignRight="@id/textView1" android:layout_centerVertical="true" />
+    <TextView android:textAppearance="?android:textAppearanceLarge" android:textSize="80.0sp" android:textStyle="bold" android:textColor="#ff2980b9" android:id="@id/textView5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="d" android:layout_alignParentRight="true" android:layout_centerVertical="true" />
 </RelativeLayout>

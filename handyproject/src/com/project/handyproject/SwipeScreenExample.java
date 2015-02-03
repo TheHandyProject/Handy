@@ -1,65 +1,66 @@
 package com.project.handyproject;
 
-//import com.android.swipe.R;
-import java.util.HashMap;
-
 import com.project.handyproject.SimpleGestureFilter.SimpleGestureListener;
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.os.Bundle;
-import android.widget.Toast;
+
+import android.app.*;
 import android.view.*;
- 
-public class SwipeScreenExample extends Activity implements SimpleGestureListener{
-            private SimpleGestureFilter detector;
-            public String message;
-            public int num;
-            public static final String EXTRA_STRING_NAME = "extraStringName";
-            
-        @Override
-            public void onCreate(Bundle savedInstanceState) {
-                super.onCreate(savedInstanceState);
-                Intent intent = getIntent();
-                message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
-                num = Integer.parseInt(message);
-                switch (num)
-                {
-                case 0 : setContentView(R.layout.swipe_screen_up);
-                case 1 : setContentView(R.layout.swipe_screen_down);
-                case 2 : setContentView(R.layout.swipe_screen_right);
-                case 3 : setContentView(R.layout.swipe_screen_left);
-                }
-                	
-                // Detect touched area 
-                detector = new SimpleGestureFilter(this,this);
+import android.os.*;
+import android.widget.*;
+import android.content.*;
+
+public class SwipeScreenExample extends Activity implements SimpleGestureListener
+{
+    public static final String EXTRA_STRING_NAME = "extraStringName";
+    private SimpleGestureFilter detector;
+    public int num;
+    
+    public boolean dispatchTouchEvent(final MotionEvent motionEvent) {
+        this.detector.onTouchEvent(motionEvent);
+        return super.dispatchTouchEvent(motionEvent);
+    }
+    
+    public void onCreate(final Bundle bundle) {
+        super.onCreate(bundle);
+    	int layoutNum;
+        String message = this.getIntent().getStringExtra("com.project.handyproject.MESSAGE");
+        Toast.makeText((Context)this, message, 0).show();
+        switch ( Integer.parseInt(message)) {
+            case 0: {
+                this.setContentView(R.layout.swipe_screen_up);
+                break;
+            }
+            case 1: {
+                this.setContentView(R.layout.swipe_screen_right);
+                break;
+            }
+            case 2: {
+                this.setContentView(R.layout.swipe_screen_down);
+                break;
+            }
+            case 3: {
+                this.setContentView(R.layout.swipe_screen_left);
+                break;
+            }
         }
-          
-    @Override
-    public boolean dispatchTouchEvent(MotionEvent me){
-        // Call onTouchEvent of SimpleGestureFilter class
-         this.detector.onTouchEvent(me);
-       return super.dispatchTouchEvent(me);
+        this.detector = new SimpleGestureFilter(this, (SimpleGestureFilter.SimpleGestureListener)this);
     }
-    @Override
-     public void onSwipe(int direction, float slope) {
-      int x = direction + num*7 + 95;
-      String asciiValue = String.valueOf(((char) x));
-      Toast.makeText(this, asciiValue, Toast.LENGTH_SHORT).show();
-      
-      Intent iData = new Intent();
-      iData.putExtra( EXTRA_STRING_NAME, asciiValue );
-      
-      setResult( android.app.Activity.RESULT_OK,iData );
-      
-      finish();
-     
+    
+    public void onDoubleTap() {
+        Toast.makeText((Context)this, (CharSequence)"Double Tap", 0).show();
     }
-      
-     @Override
-     public void onDoubleTap() {
-        Toast.makeText(this, "Double Tap", Toast.LENGTH_SHORT).show();
-     }
-          
-  }
+    
+    public void onSwipe(final int n, final float n2) {
+        String value = "";
+        if (n == 8) {
+            this.finish();
+        }
+        else if (n != 8) {
+            value = String.valueOf((char)(96 + (n + 7 * this.num)));
+        }
+        Toast.makeText((Context)this, (CharSequence)value, 0).show();
+        final Intent intent = new Intent();
+        intent.putExtra("extraStringName", value);
+        this.setResult(-1, intent);
+        this.finish();
+    }
+}

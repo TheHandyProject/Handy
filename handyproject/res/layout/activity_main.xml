@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/linearLayout1"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical" >
-
-    <EditText
-        android:id="@+id/editText1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:ems="10" >
-
+<RelativeLayout android:id="@id/RelativeLayout2" android:background="#fff1c40f" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <ImageView android:id="@id/imageView1" android:layout_width="fill_parent" android:layout_height="fill_parent" android:src="@drawable/homefinal" android:layout_alignParentTop="true" android:layout_alignParentRight="true" />
+    <EditText android:textSize="50.0sp" android:id="@id/editText11" android:background="#592980b9" android:focusable="false" android:visibility="visible" android:clickable="false" android:layout_width="fill_parent" android:layout_height="50.0dip" android:layout_marginTop="38.0dip" android:ems="10" android:layout_alignParentLeft="true" android:layout_alignParentTop="true" android:inputType="text">
         <requestFocus />
     </EditText>
- 
- </LinearLayout>
-    
+</RelativeLayout>

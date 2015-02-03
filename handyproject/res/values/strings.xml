@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_name">Handy</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
@@ -12,7 +11,6 @@
     <string name="up_South">f</string>
     <string name="up_SW">g</string>
     <string name="West">&lt;-</string>
-
     <string name="down_NW">o</string>
     <string name="down_North">p</string>
     <string name="down_NE">q</string>
@@ -20,7 +18,6 @@
     <string name="down_SE">s</string>
     <string name="down_South">t</string>
     <string name="down_SW">u</string>
-
     <string name="right_NW">h</string>
     <string name="right_North">i</string>
     <string name="right_NE">j</string>
@@ -28,7 +25,6 @@
     <string name="right_SE">l</string>
     <string name="right_South">m</string>
     <string name="right_SW">n</string>
-
     <string name="left_NW">v</string>
     <string name="left_North">w</string>
     <string name="left_NE">x</string>
@@ -36,6 +32,4 @@
     <string name="left_SE">z</string>
     <string name="left_South">ques</string>
     <string name="left_SW">.</string>
-    
 </resources>
-

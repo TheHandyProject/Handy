@@ -1,142 +1,1 @@
-package com.project.handyproject;
-
-//import com.android.swipe.R;
-
-import android.app.Activity;
-import android.content.Context;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import android.os.Bundle;
-import android.view.Menu;
-import android.widget.EditText;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-//import android.widget.RelativeLayout;
-//import android.widget.TextView;
-//import android.view.*;
-import android.content.Intent;
-
-public class MainActivity extends Activity implements SensorEventListener {
-	
-	private SensorManager mSensorManager;
-	private Sensor mAccelerometer;
-    public final static String EXTRA_MESSAGE = "com.project.handyproject.MESSAGE";
-    public static final int MY_REQUEST_CODE = 123;
-    
-
-//	TextView title,tv,tv1,tv2,tv3,tv4;
-	LinearLayout layout;
-	
-	
-	public final void onCreate(Bundle savedInstanceState)
-	 {
-	   super.onCreate(savedInstanceState);
-	   setContentView(R.layout.activity_main); //refer layout file code below
-	   //get the sensor service
-	   mSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-	   //get the accelerometer sensor
-	   mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-	   //get layout
-	   layout = (LinearLayout)findViewById(R.id.linearLayout1);
-	      
-	 }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
-    }
-
-
-    @Override
-    public final void onAccuracyChanged(Sensor sensor, int accuracy)
-     {
-       // Do something here if sensor accuracy changes.
-     }
-  @Override
-   public final void onSensorChanged(SensorEvent event)
-     {
-      // Many sensors return 3 values, one for each axis.
-     float x = event.values[0];
-     float y = event.values[1];
-     float z = event.values[2];
-     
-   if (x<1&&x>-1&&y<1&&y>-0.06&&z>10&&z<11)
-     {
-    	// tv3.setText("Horizontal Position");
-       // sendMessage("0");
-     }
-     if (x<1&&x>-1&&y<-1&&y>-5&&z>8&&z<11)
-     {
-    //	 tv3.setText("Up Position");
-         sendMessage("0");
-     }
-     if (x<1&&x>-1&&y<9&&y>1.5&&z>6&&z<9)
-     {
-    //	 tv3.setText("Down Position");
-          sendMessage("1");
-     }
-     if (x<9&&x>2&&y<1&&y>-1&&z>9&&z<11)
-     {
-    //	 tv4.setText("Right Position");
-         sendMessage("2");
-     }
-     if (x<-1&&x>-5&&y<1&&y>-1&&z>10&&z<11)
-     {
-    //	 tv4.setText("Left Position");
-          sendMessage("3");
-     }
-     if (x<1&&x>-1&&y<1&&y>-1&&z>10&&z<11)
-     {
-    	// tv4.setText("Horizontal Position");
-        // sendMessage("0");
-     }
-     
- 
-     } 
-  public void sendMessage(String data) {
-	    Intent intent = new Intent(this, SwipeScreenExample.class);
-	    intent.putExtra(EXTRA_MESSAGE, data);
-	    startActivityForResult(intent, MY_REQUEST_CODE);
-	}
-
-  protected void onActivityResult(
-          int requestCode, 
-          int resultCode,
-          Intent pData) 
-  {
-       if ( requestCode == MY_REQUEST_CODE ) 
-       {
-           if (resultCode == Activity.RESULT_OK ) 
-           {
-                String zData = pData.getExtras().getString( SwipeScreenExample.EXTRA_STRING_NAME );
-                EditText etxt = (EditText) findViewById(R.id.editText1);
-                String existing = String.valueOf(etxt.getText());
-                String newValue = existing + zData;
-                CharSequence cs = newValue;
-                etxt.setText(cs);
-           
-           }
-       }
-       
-   }
-  
-  
-  @Override
-  protected void onResume()
-  {
-  super.onResume();
-  mSensorManager.registerListener(this, mAccelerometer, SensorManager.SENSOR_DELAY_NORMAL);
-  }
-  @Override
-  protected void onPause()
-  {
-  super.onPause();
-  mSensorManager.unregisterListener(this);
-  }
-    
-}
-
+package com.project.handyproject;import android.app.Activity;import android.content.Context;import android.content.Intent;import android.hardware.Sensor;import android.hardware.SensorEvent;import android.hardware.SensorEventListener;import android.hardware.SensorManager;import android.os.Bundle;import android.text.Editable;import android.view.Menu;import android.view.MenuInflater;import android.widget.EditText;import android.widget.LinearLayout;import android.widget.Toast;public class MainActivity extends Activity  implements SensorEventListener{  public static final String EXTRA_MESSAGE = "com.project.handyproject.MESSAGE";  public static final int MY_REQUEST_CODE = 123;  LinearLayout layout;  private Sensor mAccelerometer;  private SensorManager mSensorManager;  public float Round(float paramFloat, int paramInt)  {    float f = (float)Math.pow(10.0D, paramInt);    return Math.round(paramFloat * f) / f;  }  public final void onAccuracyChanged(Sensor paramSensor, int paramInt)  {  }  protected void onActivityResult(int paramInt1, int paramInt2, Intent paramIntent)  {    if ((paramInt1 == 123) && (paramInt2 == -1))    {      String str = paramIntent.getExtras().getString("extraStringName");      EditText localEditText = (EditText)findViewById(2131230722);      localEditText.setText(String.valueOf(localEditText.getText()) + str);    }  }  public final void onCreate(Bundle paramBundle)  {    super.onCreate(paramBundle);    setContentView(2130903040);    this.mSensorManager = ((SensorManager)getSystemService("sensor"));    this.mAccelerometer = this.mSensorManager.getDefaultSensor(1);    this.layout = ((LinearLayout)findViewById(2131230751));  }  public boolean onCreateOptionsMenu(Menu paramMenu)  {    getMenuInflater().inflate(2131165184, paramMenu);    return true;  }  protected void onPause()  {    super.onPause();    this.mSensorManager.unregisterListener(this);  }  protected void onResume()  {    super.onResume();    this.mSensorManager.registerListener(this, this.mAccelerometer, 3);  }  public final void onSensorChanged(SensorEvent paramSensorEvent)  {    float x = paramSensorEvent.values[0];    float y = paramSensorEvent.values[1];    float z = paramSensorEvent.values[2];    if (x<1&&x>-1&&y<1&&y>-0.06&&z>10&&z<11)    {   	// tv3.setText("Horizontal Position");      // sendMessage("0");    }    else if (x<1&&x>-1&&y<-1&&y>-5&&z>8&&z<11)    {   //	 tv3.setText("Up Position");        sendMessage("0");    }    else if (x<1&&x>-1&&y<9&&y>1.5&&z>6&&z<9)    {   //	 tv3.setText("Down Position");         sendMessage("2");    }    else if (x<9&&x>2&&y<1&&y>-1&&z>9&&z<11)    {   //	 tv4.setText("Right Position");        sendMessage("1");    }    else if (x<-1&&x>-5&&y<1&&y>-1&&z>10&&z<11)    {   //	 tv4.setText("Left Position");         sendMessage("3");    }        else if(Round(x,4)>10.0)    {      EditText localEditText = (EditText)findViewById(2131230722);      String str = localEditText.getText().toString();      if (str.length() > 0)      {        Toast.makeText(this, "Delete", 2).show();        localEditText.setText(str.substring(0, -1 + localEditText.length()));      }    }  }  public void sendMessage(String paramString)  {    Intent localIntent = new Intent(this, SwipeScreenExample.class);    localIntent.putExtra("com.project.handyproject.MESSAGE", paramString);    startActivityForResult(localIntent, 123);  }}
