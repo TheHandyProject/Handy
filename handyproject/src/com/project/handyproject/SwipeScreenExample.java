@@ -24,7 +24,8 @@ public class SwipeScreenExample extends Activity implements SimpleGestureListene
     	int layoutNum;
         String message = this.getIntent().getStringExtra("com.project.handyproject.MESSAGE");
         Toast.makeText((Context)this, message, 0).show();
-        switch ( Integer.parseInt(message)) {
+        this.num = Integer.parseInt(message);
+        switch ( this.num) {
             case 0: {
                 this.setContentView(R.layout.swipe_screen_up);
                 break;
